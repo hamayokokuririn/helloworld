@@ -32,7 +32,12 @@ class ViewController: UIViewController {
         } else {
             if let helloText = helloWorldLabel.text,
                 let helloCount = helloWorldLabel.text?.count {
-                
+                var helloTextList = helloText.map{
+                    String($0)
+                }
+                if helloTextList[count - 1] == " " {
+                    count += 1
+                }
                 let attrText = NSMutableAttributedString(string: helloText)
                 attrText.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.red, range: NSMakeRange(0, count))
                 helloWorldLabel.attributedText = attrText
